@@ -21,10 +21,11 @@ namespace Presentacion
 
             do
             {
-
-                Console.WriteLine("\t\t\tmenu de Opciones\n");
+                Console.WriteLine("\t\t\tMenu de Opciones\n");
                 Console.WriteLine("\t1) Ingresar Datos");
                 Console.WriteLine("\t2) Consultar Datos");
+                Console.WriteLine("\t3) Eliminar Datos");
+                Console.WriteLine("\t4) Modificar Datos");
                 opc = Convert.ToInt32(Console.ReadLine());
 
                 switch (opc)
@@ -35,7 +36,12 @@ namespace Presentacion
                     case 2:
                         Consultar();
                         break;
-
+                    case 3:
+                        Eliminar();
+                        break;
+                    case 4:
+                        Modificar();
+                        break;
                 }
 
             } while (opc != 3);
@@ -81,13 +87,12 @@ namespace Presentacion
             autobus = new RentaAutobus()
             {
                 Placa = placa,
-                TipoVehiculo = "Autobus",
+                TipoVehiculo = "AUTOBUS",
                 KilometroRenta = kilometrorenta,
                 KilometroDevolucion = kilometrodevolucion,
             };
             autobus.GenerarLiquidacion();
             autobus.CalcularvalorRenta();
-            Console.WriteLine($"Numero de Liquidadcion {autobus.NumeroLiquidacion}");
             service.Guardar(autobus);
         }
 
@@ -115,13 +120,12 @@ namespace Presentacion
             tractor = new RentaTractor()
             {
                 Placa = placa,
-                TipoVehiculo = "Tractor",
+                TipoVehiculo = "TRACTOR",
                 FechaRenta = fecharenta,
                 FechaDevocion = fechadevocion,
             };
             tractor.GenerarLiquidacion();
             tractor.CalcularvalorRenta();
-            Console.WriteLine($"Numero de Liquidadcion {tractor.NumeroLiquidacion}");
             service.Guardar(tractor);
         }
 
@@ -136,9 +140,7 @@ namespace Presentacion
 
                 foreach (var item in response.Rentas)
                 {
-
                     Console.WriteLine(item.Escribir());
-
                 }
             }
             else
@@ -146,6 +148,24 @@ namespace Presentacion
                 Console.WriteLine(response.Mensaje);
             }
             Console.ReadKey();
+        }
+        
+        private static void Eliminar()
+        {
+            double liquidacion;
+
+            RentaService vehiculoService = new RentaService();
+
+            Console.Write("\t\tIngrese Liquidacion a Eliminar:  ");
+            liquidacion = Convert.ToDouble( Console.ReadLine());
+            vehiculoService.Eliminar(liquidacion);
+
+
+        }
+
+        private static void Modificar()
+        {
+            
         }
     }
 }

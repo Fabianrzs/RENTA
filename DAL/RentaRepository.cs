@@ -33,7 +33,7 @@ namespace DAL
 
         private static RentaVehiculo MapearVehiculo(string linea)
         {
-            string[] datosVehiculo = linea.Split(';');
+            string [] datosVehiculo = linea.Split(';');
 
 
             if (datosVehiculo[1].ToUpper().Equals("AUTOBUS"))
@@ -86,6 +86,52 @@ namespace DAL
             return vehiculos;
         }
 
+        public RentaVehiculo BuscarPorLiquidacion(double Liquidacion)
+        {
+            foreach(var item in Consultar())
+            {
+                if (item.NumeroLiquidacion.Equals(Liquidacion))
+                    return item;        
+            }
+
+            return null;
+
+        }
+
+        public void Eliminar(double liquidacion )
+        {
+            List<RentaVehiculo> Rentas = Consultar();
+            FileStream file = new FileStream(ruta, FileMode.Create);
+            file.Close();
+            foreach(var item in Rentas)
+            {
+                if(!item.NumeroLiquidacion.Equals(liquidacion))
+                {
+                    if (item.TipoVehiculo.Equals("TRACTOR"))
+                    {
+                        Guardar((RentaTractor)item);
+                    }else if (item.TipoVehiculo.Equals("AUTOBUS"))
+                    {
+                        Guardar((RentaAutobus)item);
+                    }
+
+                    
+                }
+            }
+
+
+        }
+
+        public void Modificar (RentaVehiculo renta, double Liquidacion)
+        {
+
+
+
+        }
+
 
     }
 }
+/*if (item.TipoVehiculo.Equals("TRACTOR"))
+
+                    else if (item.TipoVehiculo.Equals("AUTOBUS"))*/
