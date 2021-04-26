@@ -93,8 +93,8 @@ namespace BLL
                     repository.Eliminar(liquidacion);
 
                     return $"Eliminacion Exitosa";
-                }
-                return $"No se encuentra Registro para Eliminar";
+                }else
+                    return $"No se encuentra Registro para Eliminar";
 
             }
             catch (Exception exception)

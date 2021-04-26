@@ -26,7 +26,8 @@ namespace Presentacion
                 Console.WriteLine("\t2) Consultar Datos");
                 Console.WriteLine("\t3) Eliminar Datos");
                 Console.WriteLine("\t4) Modificar Datos");
-                opc = Convert.ToInt32(Console.ReadLine());
+                opc = Int32.Parse(Console.ReadLine());
+
 
                 switch (opc)
                 {
@@ -42,9 +43,11 @@ namespace Presentacion
                     case 4:
                         Modificar();
                         break;
+                    case 5:
+                        break;
                 }
 
-            } while (opc != 3);
+            } while (opc != 5);
         }
 
         private static void capturarDatos()
@@ -158,7 +161,7 @@ namespace Presentacion
 
             Console.Write("\t\tIngrese Liquidacion a Eliminar:  ");
             liquidacion = Convert.ToDouble( Console.ReadLine());
-            vehiculoService.Eliminar(liquidacion);
+            Console.WriteLine (vehiculoService.Eliminar(liquidacion));
 
 
         }
