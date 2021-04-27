@@ -43,8 +43,6 @@ namespace Presentacion
                     case 4:
                         Modificar();
                         break;
-                    case 5:
-                        break;
                 }
 
             } while (opc != 5);
@@ -161,14 +159,36 @@ namespace Presentacion
 
             Console.Write("\t\tIngrese Liquidacion a Eliminar:  ");
             liquidacion = Convert.ToDouble( Console.ReadLine());
-            Console.WriteLine (vehiculoService.Eliminar(liquidacion));
+            Console.WriteLine (vehiculoService.Consultar(liquidacion));
 
 
         }
 
         private static void Modificar()
         {
-            
+            double liquidacion;
+            RentaService vehiculoService = new RentaService();
+            BusquedaResponse busqueda;
+
+            Console.WriteLine("\t\tIngrese Liquidacion a Modificar:  ");
+
+            liquidacion = Convert.ToDouble(Console.ReadLine());
+
+            busqueda = vehiculoService.Buscar(liquidacion);
+
+            if (!busqueda.Error)
+            {
+               Console.WriteLine(busqueda.Renta.Escribir());
+            }
+            else
+            {
+                Console.WriteLine("No existe registro");
+                
+            }
+
+            Console.WriteLine("Ingrese Los siguientes Datos");
+
         }
+
     }
 }

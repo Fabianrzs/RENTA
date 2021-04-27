@@ -125,11 +125,36 @@ namespace DAL
         public void Modificar (RentaVehiculo renta, double Liquidacion)
         {
 
-
+            List<RentaVehiculo> rentaVehiculos = Consultar();
+            FileStream file = new FileStream(ruta, FileMode.Create);
+            file.Close();
+            foreach (var item in rentaVehiculos)
+            {
+                if (item.NumeroLiquidacion != Liquidacion)
+                {
+                    if (item.TipoVehiculo.Equals("Tractor"))
+                    {
+                        Guardar((RentaTractor)item);
+                    }
+                    else if (item.TipoVehiculo.Equals("Autobus"))
+                    {
+                        Guardar((RentaAutobus)item);
+                    }
+                }
+                else
+                {
+                    if (item.TipoVehiculo.Equals("Tractor"))
+                    {
+                        Guardar((RentaTractor)renta);
+                    }
+                    else if (item.TipoVehiculo.Equals("Autobus"))
+                    {
+                        Guardar((RentaAutobus)renta);
+                    }
+                }
+            }
 
         }
-
-
     }
 }
 /*if (item.TipoVehiculo.Equals("TRACTOR"))
