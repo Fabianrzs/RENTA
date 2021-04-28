@@ -36,6 +36,11 @@ namespace Presentacion_GUI
             this.PnlContenedor = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PnlMenuVertical = new System.Windows.Forms.Panel();
+            this.PnlRegistrar = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.BtnRegisrarTactor = new System.Windows.Forms.Button();
+            this.BtnRegistrarAutobus = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.BtnInforme = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -53,6 +58,7 @@ namespace Presentacion_GUI
             this.PnlContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PnlMenuVertical.SuspendLayout();
+            this.PnlRegistrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +72,9 @@ namespace Presentacion_GUI
             this.PnlBarraTitulo.Name = "PnlBarraTitulo";
             this.PnlBarraTitulo.Size = new System.Drawing.Size(960, 30);
             this.PnlBarraTitulo.TabIndex = 1;
+            this.PnlBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlBarraTitulo_MouseDown);
+            this.PnlBarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlBarraTitulo_MouseMove);
+            this.PnlBarraTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PnlBarraTitulo_MouseUp);
             // 
             // Minimizar
             // 
@@ -113,6 +122,7 @@ namespace Presentacion_GUI
             // PnlMenuVertical
             // 
             this.PnlMenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.PnlMenuVertical.Controls.Add(this.PnlRegistrar);
             this.PnlMenuVertical.Controls.Add(this.panel5);
             this.PnlMenuVertical.Controls.Add(this.BtnInforme);
             this.PnlMenuVertical.Controls.Add(this.panel4);
@@ -129,6 +139,68 @@ namespace Presentacion_GUI
             this.PnlMenuVertical.Name = "PnlMenuVertical";
             this.PnlMenuVertical.Size = new System.Drawing.Size(183, 490);
             this.PnlMenuVertical.TabIndex = 0;
+            // 
+            // PnlRegistrar
+            // 
+            this.PnlRegistrar.Controls.Add(this.panel6);
+            this.PnlRegistrar.Controls.Add(this.panel7);
+            this.PnlRegistrar.Controls.Add(this.BtnRegisrarTactor);
+            this.PnlRegistrar.Controls.Add(this.BtnRegistrarAutobus);
+            this.PnlRegistrar.Location = new System.Drawing.Point(32, 179);
+            this.PnlRegistrar.Name = "PnlRegistrar";
+            this.PnlRegistrar.Size = new System.Drawing.Size(151, 79);
+            this.PnlRegistrar.TabIndex = 1;
+            this.PnlRegistrar.Visible = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Indigo;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(5, 35);
+            this.panel6.TabIndex = 5;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Indigo;
+            this.panel7.Location = new System.Drawing.Point(0, 41);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(5, 35);
+            this.panel7.TabIndex = 7;
+            // 
+            // BtnRegisrarTactor
+            // 
+            this.BtnRegisrarTactor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.BtnRegisrarTactor.FlatAppearance.BorderSize = 0;
+            this.BtnRegisrarTactor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.BtnRegisrarTactor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRegisrarTactor.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnRegisrarTactor.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.BtnRegisrarTactor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRegisrarTactor.Location = new System.Drawing.Point(11, 0);
+            this.BtnRegisrarTactor.Name = "BtnRegisrarTactor";
+            this.BtnRegisrarTactor.Size = new System.Drawing.Size(107, 35);
+            this.BtnRegisrarTactor.TabIndex = 4;
+            this.BtnRegisrarTactor.Text = "TRACTOR";
+            this.BtnRegisrarTactor.UseVisualStyleBackColor = false;
+            this.BtnRegisrarTactor.Click += new System.EventHandler(this.BtnRegisrarTactor_Click);
+            // 
+            // BtnRegistrarAutobus
+            // 
+            this.BtnRegistrarAutobus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.BtnRegistrarAutobus.FlatAppearance.BorderSize = 0;
+            this.BtnRegistrarAutobus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.BtnRegistrarAutobus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRegistrarAutobus.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnRegistrarAutobus.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.BtnRegistrarAutobus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRegistrarAutobus.Location = new System.Drawing.Point(11, 41);
+            this.BtnRegistrarAutobus.Name = "BtnRegistrarAutobus";
+            this.BtnRegistrarAutobus.Size = new System.Drawing.Size(107, 35);
+            this.BtnRegistrarAutobus.TabIndex = 6;
+            this.BtnRegistrarAutobus.Text = "AUTOBUS";
+            this.BtnRegistrarAutobus.UseVisualStyleBackColor = false;
+            this.BtnRegistrarAutobus.Click += new System.EventHandler(this.BtnRegistrarAutobus_Click);
             // 
             // panel5
             // 
@@ -253,6 +325,7 @@ namespace Presentacion_GUI
             this.BtnRegistrar.TabIndex = 2;
             this.BtnRegistrar.Text = "REGISTRAR";
             this.BtnRegistrar.UseVisualStyleBackColor = false;
+            this.BtnRegistrar.Click += new System.EventHandler(this.BtnRegistrar_Click);
             // 
             // pictureBox3
             // 
@@ -284,6 +357,7 @@ namespace Presentacion_GUI
             this.PnlContenedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PnlMenuVertical.ResumeLayout(false);
+            this.PnlRegistrar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -307,6 +381,11 @@ namespace Presentacion_GUI
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnModificar;
+        private System.Windows.Forms.Panel PnlRegistrar;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button BtnRegisrarTactor;
+        private System.Windows.Forms.Button BtnRegistrarAutobus;
     }
 }
 

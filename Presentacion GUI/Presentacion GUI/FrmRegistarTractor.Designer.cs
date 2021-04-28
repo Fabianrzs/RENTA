@@ -34,11 +34,11 @@ namespace Presentacion_GUI
             this.dataGridRegistro = new System.Windows.Forms.DataGridView();
             this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.PnlRegistarTactor = new System.Windows.Forms.Panel();
-            this.dateTimeRenta = new System.Windows.Forms.DateTimePicker();
-            this.dateTimeDevolucion = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.BtnrRegistrar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimeDevolucion = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeRenta = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRegistro)).BeginInit();
             this.PnlRegistarTactor.SuspendLayout();
             this.SuspendLayout();
@@ -100,45 +100,6 @@ namespace Presentacion_GUI
             this.PnlRegistarTactor.Size = new System.Drawing.Size(777, 490);
             this.PnlRegistarTactor.TabIndex = 2;
             // 
-            // dateTimeRenta
-            // 
-            this.dateTimeRenta.Location = new System.Drawing.Point(520, 197);
-            this.dateTimeRenta.Name = "dateTimeRenta";
-            this.dateTimeRenta.Size = new System.Drawing.Size(227, 23);
-            this.dateTimeRenta.TabIndex = 26;
-            this.dateTimeRenta.Value = new System.DateTime(2021, 4, 27, 0, 0, 0, 0);
-            // 
-            // dateTimeDevolucion
-            // 
-            this.dateTimeDevolucion.Location = new System.Drawing.Point(520, 276);
-            this.dateTimeDevolucion.Name = "dateTimeDevolucion";
-            this.dateTimeDevolucion.Size = new System.Drawing.Size(227, 23);
-            this.dateTimeDevolucion.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AllowDrop = true;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(568, 167);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 18);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Fecha de Renta";
-            // 
-            // label4
-            // 
-            this.label4.AllowDrop = true;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(558, 246);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 18);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Fecha de Devolucion";
-            // 
             // BtnrRegistrar
             // 
             this.BtnrRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
@@ -153,6 +114,46 @@ namespace Presentacion_GUI
             this.BtnrRegistrar.TabIndex = 30;
             this.BtnrRegistrar.Text = "    REGISTRAR";
             this.BtnrRegistrar.UseVisualStyleBackColor = false;
+            this.BtnrRegistrar.Click += new System.EventHandler(this.BtnrRegistrar_Click);
+            // 
+            // label4
+            // 
+            this.label4.AllowDrop = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(558, 246);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 18);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Fecha de Devolucion";
+            // 
+            // label2
+            // 
+            this.label2.AllowDrop = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(568, 167);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 18);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Fecha de Renta";
+            // 
+            // dateTimeDevolucion
+            // 
+            this.dateTimeDevolucion.Location = new System.Drawing.Point(520, 276);
+            this.dateTimeDevolucion.Name = "dateTimeDevolucion";
+            this.dateTimeDevolucion.Size = new System.Drawing.Size(227, 23);
+            this.dateTimeDevolucion.TabIndex = 27;
+            // 
+            // dateTimeRenta
+            // 
+            this.dateTimeRenta.Location = new System.Drawing.Point(520, 197);
+            this.dateTimeRenta.Name = "dateTimeRenta";
+            this.dateTimeRenta.Size = new System.Drawing.Size(227, 23);
+            this.dateTimeRenta.TabIndex = 26;
+            this.dateTimeRenta.Value = new System.DateTime(2021, 4, 27, 0, 0, 0, 0);
             // 
             // FrmRegistarTractor
             // 

@@ -16,5 +16,19 @@ namespace Presentacion_GUI
         {
             InitializeComponent();
         }
+
+        private void CbxTipoVehiculo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbxTipoVehiculo.Text.Equals("TRACTOR"))
+            {
+                PnlTractor.Visible = true;
+                PnlAutobus.Visible = false;
+            }
+            else if (CbxTipoVehiculo.Text.Equals("AUTOBUS"))
+            {
+                PnlAutobus.Visible = true;
+                PnlTractor.Visible = false;
+            }
+        }
     }
 }

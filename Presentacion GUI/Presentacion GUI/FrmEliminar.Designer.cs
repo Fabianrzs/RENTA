@@ -29,16 +29,21 @@ namespace Presentacion_GUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PnlEliminar = new System.Windows.Forms.Panel();
             this.TxtNumeroLiquidacion = new System.Windows.Forms.TextBox();
+            this.TxtConfirmarLiquidacion = new System.Windows.Forms.TextBox();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.dataGridViewRegistro = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.TxtConfirmarLiquidacion = new System.Windows.Forms.TextBox();
+            this.errorProviderNumeroLiquidacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderConfirmarLiquidacion = new System.Windows.Forms.ErrorProvider(this.components);
             this.PnlEliminar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNumeroLiquidacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmarLiquidacion)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlEliminar
@@ -64,6 +69,18 @@ namespace Presentacion_GUI
             this.TxtNumeroLiquidacion.Name = "TxtNumeroLiquidacion";
             this.TxtNumeroLiquidacion.Size = new System.Drawing.Size(112, 22);
             this.TxtNumeroLiquidacion.TabIndex = 16;
+            this.TxtNumeroLiquidacion.Validating += new System.ComponentModel.CancelEventHandler(this.TxtNumeroLiquidacion_Validating);
+            this.TxtNumeroLiquidacion.Validated += new System.EventHandler(this.TxtNumeroLiquidacion_Validated);
+            // 
+            // TxtConfirmarLiquidacion
+            // 
+            this.TxtConfirmarLiquidacion.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtConfirmarLiquidacion.Location = new System.Drawing.Point(331, 364);
+            this.TxtConfirmarLiquidacion.Name = "TxtConfirmarLiquidacion";
+            this.TxtConfirmarLiquidacion.Size = new System.Drawing.Size(113, 22);
+            this.TxtConfirmarLiquidacion.TabIndex = 15;
+            this.TxtConfirmarLiquidacion.Validating += new System.ComponentModel.CancelEventHandler(this.TxtConfirmarLiquidacion_Validating);
+            this.TxtConfirmarLiquidacion.Validated += new System.EventHandler(this.TxtConfirmarLiquidacion_Validated);
             // 
             // BtnEliminar
             // 
@@ -122,13 +139,13 @@ namespace Presentacion_GUI
             this.label5.TabIndex = 9;
             this.label5.Text = "ELIMINAR";
             // 
-            // TxtConfirmarLiquidacion
+            // errorProviderNumeroLiquidacion
             // 
-            this.TxtConfirmarLiquidacion.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TxtConfirmarLiquidacion.Location = new System.Drawing.Point(331, 364);
-            this.TxtConfirmarLiquidacion.Name = "TxtConfirmarLiquidacion";
-            this.TxtConfirmarLiquidacion.Size = new System.Drawing.Size(113, 22);
-            this.TxtConfirmarLiquidacion.TabIndex = 15;
+            this.errorProviderNumeroLiquidacion.ContainerControl = this;
+            // 
+            // errorProviderConfirmarLiquidacion
+            // 
+            this.errorProviderConfirmarLiquidacion.ContainerControl = this;
             // 
             // FrmEliminar
             // 
@@ -142,6 +159,8 @@ namespace Presentacion_GUI
             this.PnlEliminar.ResumeLayout(false);
             this.PnlEliminar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNumeroLiquidacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmarLiquidacion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -156,5 +175,7 @@ namespace Presentacion_GUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtConfirmarLiquidacion;
+        private System.Windows.Forms.ErrorProvider errorProviderNumeroLiquidacion;
+        private System.Windows.Forms.ErrorProvider errorProviderConfirmarLiquidacion;
     }
 }

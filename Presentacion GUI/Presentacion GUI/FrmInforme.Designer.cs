@@ -29,10 +29,12 @@ namespace Presentacion_GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PnlInforme = new System.Windows.Forms.Panel();
             this.BtnBuscar = new System.Windows.Forms.Button();
-            this.dataGridViewRegistro = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.dataGridViewRegistro = new System.Windows.Forms.DataGridView();
             this.PnlInforme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).BeginInit();
             this.SuspendLayout();
@@ -64,26 +66,45 @@ namespace Presentacion_GUI
             this.BtnBuscar.TabIndex = 13;
             this.BtnBuscar.Text = "     ACTUALIZAR";
             this.BtnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewRegistro
-            // 
-            this.dataGridViewRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRegistro.Location = new System.Drawing.Point(48, 117);
-            this.dataGridViewRegistro.Name = "dataGridViewRegistro";
-            this.dataGridViewRegistro.RowTemplate.Height = 25;
-            this.dataGridViewRegistro.Size = new System.Drawing.Size(684, 279);
-            this.dataGridViewRegistro.TabIndex = 12;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Modern No. 20", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(262, 35);
+            this.label5.Location = new System.Drawing.Point(315, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 31);
             this.label5.TabIndex = 9;
             this.label5.Text = "INFORME";
+            // 
+            // dataGridViewRegistro
+            // 
+            this.dataGridViewRegistro.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewRegistro.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewRegistro.GridColor = System.Drawing.Color.White;
+            this.dataGridViewRegistro.Location = new System.Drawing.Point(48, 117);
+            this.dataGridViewRegistro.Name = "dataGridViewRegistro";
+            this.dataGridViewRegistro.RowTemplate.Height = 25;
+            this.dataGridViewRegistro.Size = new System.Drawing.Size(684, 279);
+            this.dataGridViewRegistro.TabIndex = 12;
             // 
             // FrmInforme
             // 

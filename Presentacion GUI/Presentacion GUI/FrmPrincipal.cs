@@ -18,6 +18,10 @@ namespace Presentacion_GUI
         }
 
         private Form frmActual = null;
+        private int eventoActivo;
+        private int ubicacionMausex;
+        private int ubicacionMausey;
+
         private void AbrirFromHijo(Form frmHijo)
         {
             if (frmActual != null)
@@ -56,6 +60,32 @@ namespace Presentacion_GUI
             this.WindowState = FormWindowState.Minimized;
         }
 
+
+
+        private void BtnRegistrar_Click(object sender, EventArgs e)
+        {
+            if (PnlRegistrar.Visible == true)
+            {
+                PnlRegistrar.Visible = false;
+            }
+            else
+            {
+                PnlRegistrar.Visible = true;
+            }
+        }
+
+        private void BtnRegisrarTactor_Click(object sender, EventArgs e)
+        {
+            AbrirFromHijo(new FrmRegistarTractor());
+            PnlRegistrar.Visible = false;
+        }
+
+        private void BtnRegistrarAutobus_Click(object sender, EventArgs e)
+        {
+            AbrirFromHijo(new FrmRegistrarAutobus());
+            PnlRegistrar.Visible = false;
+        }
+
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
             AbrirFromHijo(new FrmConsultar());
@@ -80,6 +110,26 @@ namespace Presentacion_GUI
         private void BtnInforme_Click(object sender, EventArgs e)
         {
             AbrirFromHijo(new FrmInforme());
+        }
+
+        private void PnlBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            eventoActivo = 1;
+            ubicacionMausex = e.X;
+            ubicacionMausey = e.Y;
+        }
+
+        private void PnlBarraTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (eventoActivo == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - ubicacionMausex, MousePosition.Y - ubicacionMausey);
+            }
+        }
+
+        private void PnlBarraTitulo_MouseUp(object sender, MouseEventArgs e)
+        {
+            eventoActivo = 0;
         }
     }
 }

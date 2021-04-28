@@ -30,15 +30,15 @@ namespace Presentacion_GUI
         private void InitializeComponent()
         {
             this.PnlRegistarTactor = new System.Windows.Forms.Panel();
+            this.TxtKilometrosRenta = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtKilometrosDevuelto = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.BtnrRegistrar = new System.Windows.Forms.Button();
             this.dataGridViewRegistro = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.TxtKilometrosDevuelto = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtKilometrosRenta = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.PnlRegistarTactor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +62,44 @@ namespace Presentacion_GUI
             this.PnlRegistarTactor.Size = new System.Drawing.Size(777, 490);
             this.PnlRegistarTactor.TabIndex = 3;
             // 
+            // TxtKilometrosRenta
+            // 
+            this.TxtKilometrosRenta.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtKilometrosRenta.Location = new System.Drawing.Point(646, 192);
+            this.TxtKilometrosRenta.Name = "TxtKilometrosRenta";
+            this.TxtKilometrosRenta.Size = new System.Drawing.Size(51, 22);
+            this.TxtKilometrosRenta.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(463, 192);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 18);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Kilometros Renta";
+            // 
+            // TxtKilometrosDevuelto
+            // 
+            this.TxtKilometrosDevuelto.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtKilometrosDevuelto.Location = new System.Drawing.Point(646, 241);
+            this.TxtKilometrosDevuelto.Name = "TxtKilometrosDevuelto";
+            this.TxtKilometrosDevuelto.Size = new System.Drawing.Size(51, 22);
+            this.TxtKilometrosDevuelto.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(463, 245);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 18);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Kilometros Devolucion";
+            // 
             // TxtPlaca
             // 
             this.TxtPlaca.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -84,6 +122,7 @@ namespace Presentacion_GUI
             this.BtnrRegistrar.TabIndex = 22;
             this.BtnrRegistrar.Text = "    REGISTRAR";
             this.BtnrRegistrar.UseVisualStyleBackColor = false;
+            this.BtnrRegistrar.Click += new System.EventHandler(this.BtnrRegistrar_Click);
             // 
             // dataGridViewRegistro
             // 
@@ -115,44 +154,6 @@ namespace Presentacion_GUI
             this.label1.Size = new System.Drawing.Size(319, 31);
             this.label1.TabIndex = 18;
             this.label1.Text = "REGISTRAR AUTOBUS";
-            // 
-            // TxtKilometrosDevuelto
-            // 
-            this.TxtKilometrosDevuelto.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TxtKilometrosDevuelto.Location = new System.Drawing.Point(646, 241);
-            this.TxtKilometrosDevuelto.Name = "TxtKilometrosDevuelto";
-            this.TxtKilometrosDevuelto.Size = new System.Drawing.Size(51, 22);
-            this.TxtKilometrosDevuelto.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(463, 245);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 18);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Kilometros Devolucion";
-            // 
-            // TxtKilometrosRenta
-            // 
-            this.TxtKilometrosRenta.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TxtKilometrosRenta.Location = new System.Drawing.Point(646, 192);
-            this.TxtKilometrosRenta.Name = "TxtKilometrosRenta";
-            this.TxtKilometrosRenta.Size = new System.Drawing.Size(51, 22);
-            this.TxtKilometrosRenta.TabIndex = 29;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(463, 192);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 18);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Kilometros Renta";
             // 
             // FrmRegistrarAutobus
             // 

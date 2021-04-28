@@ -12,7 +12,8 @@ namespace Entity
         public DateTime FechaRenta { get; set; }
         public DateTime FechaDevocion { get; set; }
         public int DiasRenta { get; set; }
-        public const double valorDia = 40000;
+        public const double valorDia = 80000;
+        
 
         public int CalcularDias()
         {
@@ -22,7 +23,7 @@ namespace Entity
 
         public override void CalcularvalorRenta()
         {
-            ValorRenta = CalcularDias() * DiasRenta;
+            ValorRenta = CalcularDias() * valorDia;
         }
 
         public override string Escribir()
