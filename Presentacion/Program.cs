@@ -159,7 +159,7 @@ namespace Presentacion
 
             Console.Write("\t\tIngrese Liquidacion a Eliminar:  ");
             liquidacion = Convert.ToDouble( Console.ReadLine());
-            Console.WriteLine (vehiculoService.Consultar(liquidacion));
+            Console.WriteLine (vehiculoService.Eliminar(liquidacion));
 
 
         }

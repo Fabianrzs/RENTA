@@ -65,11 +65,12 @@ namespace BLL
             }
         }
 
-        public string Consultar(double liquidacion)
+        public string Eliminar(double liquidacion)
         {  
             try
             {
-                if (repository.BuscarPorLiquidacion(liquidacion) != null) { 
+                if (repository.BuscarPorLiquidacion(liquidacion) != null) {
+                    repository.Eliminar(liquidacion);
                     return $"Eliminacion Exitosa";
                 }else
                     return $"No se encuentra Registro para Eliminar";
@@ -177,6 +178,56 @@ namespace BLL
 
         }
         //----------------------------------------------------------------------------------------------------------------------------
+
+        //Filtro----------------------------------------------------------------------------------------------------------------------
+
+        public FiltroResponse ConsultaFiltro(string Tipo)
+        {
+            try
+            {
+                if (Tipo.Equals("TRACTOR"))
+                {
+                    return new FiltroResponse(repository.filtroTractor());
+                }
+                else
+                {
+                    return new FiltroResponse(repository.filtroAutobus());
+                }
+
+                    
+            }
+            catch (Exception exception)
+            {
+                return new FiltroResponse("Se presentó el siguiente error:" + exception.Message);
+            }
+        }
+
+
+        public class FiltroResponse
+        {
+
+            public IEnumerable<RentaVehiculo> Filtro { get; set; }
+            public string Mensaje { get; set; }
+            public bool Error { get; set; }
+
+            public FiltroResponse(IEnumerable<RentaVehiculo> filtroVehiculos)
+            {
+                Filtro = filtroVehiculos;
+                Error = false;
+            }
+
+            public FiltroResponse(string mensaje)
+            {
+                Mensaje = mensaje;
+                Error = true;
+            }
+
+
+        }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------
+
 
     }
 }

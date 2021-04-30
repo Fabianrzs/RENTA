@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BLL.RentaService;
 
 namespace Presentacion_GUI
 {
     public partial class FrmEliminar : Form
     {
+
+        RentaService service;
         public FrmEliminar()
         {
             InitializeComponent();
+            service = new RentaService();
+            llenartabla();
+        }
+
+        private void llenartabla()
+        {
+            ConsultaResponse response = service.Consultar();
+
+            if (!response.Error)
+            {
+                DGEliminar.DataSource = response.Rentas;
+            }
         }
 
         private void TxtNumeroLiquidacion_Validating(object sender, CancelEventArgs e)
@@ -41,6 +57,7 @@ namespace Presentacion_GUI
                 Mensaje = "Campo solo permite numeros";
                 return false;
             }
+            
 
             Mensaje = "Todo Correcto";
             return true;
@@ -80,6 +97,20 @@ namespace Presentacion_GUI
         private void TxtConfirmarLiquidacion_Validated(object sender, EventArgs e)
         {
             errorProviderNumeroLiquidacion.SetError(TxtConfirmarLiquidacion, "");
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren())
+            {
+                Int32.TryParse(TxtNumeroLiquidacion.Text, out int result);
+                MessageBox.Show(service.Eliminar(Convert.ToInt32(TxtNumeroLiquidacion.Text)));
+                llenartabla();
+            }
+            else
+            {
+                MessageBox.Show("Compruebe los Campos");
+            }
         }
     }
 }

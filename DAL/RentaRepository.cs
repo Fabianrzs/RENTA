@@ -155,6 +155,51 @@ namespace DAL
             }
 
         }
+        public IEnumerable<RentaVehiculo> filtroTractor()
+        {
+            List<RentaVehiculo> rentas = Consultar();
+            IEnumerable<RentaVehiculo> rentaTractor =
+                from renta in rentas
+                where renta.TipoVehiculo.Equals("TRACTOR")
+                orderby renta.ValorRenta ascending
+                select renta;
+
+            return rentaTractor;
+        }
+
+        public IEnumerable<RentaVehiculo> filtroAutobus()
+        {
+            
+                
+            List<RentaVehiculo> rentas = Consultar();
+            IEnumerable<RentaVehiculo> rentaAutobus = rentas.Where(r=>r.TipoVehiculo.Equals("AUTOBUS"));
+            return rentaAutobus;
+        }
+
+        public int contTractor()
+        {
+            List<RentaVehiculo> rentas = Consultar();
+            int filtroTractor =
+                (from renta in rentas
+                 where renta.TipoVehiculo.Equals("AUTOBUS")
+                 orderby renta.ValorRenta ascending
+                 select renta).Count();
+
+            return filtroTractor;
+        }
+
+        public int contAutobus()
+        {
+            List<RentaVehiculo> rentas = Consultar();
+            int filtroAutobus =
+                (from renta in rentas
+                 where renta.TipoVehiculo.Equals("AUTOBUS")
+                 orderby renta.ValorRenta ascending
+                 select renta).Count();
+
+            return filtroAutobus;
+        }
+
     }
 }
 /*if (item.TipoVehiculo.Equals("TRACTOR"))

@@ -9,37 +9,77 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BLL.RentaService;
 
 namespace Presentacion_GUI
 {
     public partial class FrmRegistrarAutobus : Form
     {
+        RentaService service;
+        FiltroResponse response;
+
         public FrmRegistrarAutobus()
         {
             InitializeComponent();
+            service = new RentaService();
+            llenartabla();
         }
 
-        Controller control = new Controller();
         double kilometrorenta = 0;
         double kilometroDevolucion = 0;
 
         private void BtnrRegistrar_Click(object sender, EventArgs e)
         {
-            if (!TxtPlaca.Text.Equals(""))
+            if (ValidateChildren())
             {
-                if (Camponumerico())
-                {
-                    enviarGuardar();
-                }
-                else
-                {
-                    MessageBox.Show("EL CAMPO KILOMETRO SOLO PERMITE CARACTERES NUMERICOS");
-                }
+                Camponumerico();
+                enviarGuardar();
+                llenartabla();
+
             }
             else
             {
-                MessageBox.Show("INGRESE LA PLACA");
+                MessageBox.Show("Verifique Los Datos");
             }
+        }
+
+        private void llenartabla()
+        {
+            response = service.ConsultaFiltro("AUTOBUS");
+
+            DGRegistrarAutobus.Rows.Clear();
+
+            if (!response.Error)
+            {
+                //response.Filtro =
+
+                ConfigurarGrid();
+
+                DGRegistrarAutobus.Columns[0].Name = "Numero Liquidacion";
+                DGRegistrarAutobus.Columns[1].Name = "Tipo Vehiculo";
+                DGRegistrarAutobus.Columns[2].Name = "Placa";
+                DGRegistrarAutobus.Columns[3].Name = "Total a Pagar";
+
+                foreach (var i in response.Filtro)
+                {
+                    DGRegistrarAutobus.Rows.Add(i.NumeroLiquidacion, i.TipoVehiculo, i.Placa, i.ValorRenta);
+                }
+
+            }
+        }
+
+        private void ConfigurarGrid()
+        {
+            // Create an unbound DataGridView by declaring a column count.
+            DGRegistrarAutobus.ColumnCount = 4;
+            DGRegistrarAutobus.ColumnHeadersVisible = true;
+
+            // Set the column header style.
+            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
+
+            columnHeaderStyle.BackColor = Color.Beige;
+            columnHeaderStyle.Font = new Font("Verdana", 9, FontStyle.Bold);
+            DGRegistrarAutobus.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
         }
 
         private bool Camponumerico()
@@ -77,5 +117,69 @@ namespace Presentacion_GUI
 
         }
 
+        private void TxtPlaca_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxtPlaca.Text))
+            {
+                errorProviderPlaca.SetError(TxtPlaca, "Llene el Campo");
+                e.Cancel = true;
+            }
+        }
+
+        private void TxtPlaca_Validated(object sender, EventArgs e)
+        {
+            errorProviderPlaca.SetError(TxtPlaca,"");
+        }
+
+        private void TxtKilometrosRenta_Validating(object sender, CancelEventArgs e)
+        {
+            if(!Camporenta(TxtKilometrosRenta,out string mensaje))
+            {
+                errorProviderRenta.SetError(TxtKilometrosRenta,mensaje);
+                e.Cancel = true;
+            }
+            
+
+
+        }
+
+        private bool Camporenta(TextBox txtKilometros, out string mensaje)
+        {
+           
+            if (string.IsNullOrEmpty(txtKilometros.Text))
+            {
+                mensaje = "Llene el campo";
+                return false;
+
+            }else if (!Int32.TryParse(txtKilometros.Text, out int result))
+            {
+                mensaje = "Solo Numeros";
+                return false;
+            }
+
+            mensaje = "TODO BIEN";
+            return true;
+
+
+        }
+
+        private void TxtKilometrosRenta_Validated(object sender, EventArgs e)
+        {
+            errorProviderRenta.SetError(TxtKilometrosRenta,"");
+        }
+
+        private void TxtKilometrosDevuelto_Validating(object sender, CancelEventArgs e)
+        {
+            if (!Camporenta(TxtKilometrosDevuelto, out string mensaje))
+            {
+                errorProviderDevolucion.SetError(TxtKilometrosDevuelto, mensaje);
+                e.Cancel = true;
+
+            }
+        }
+        private void TxtKilometrosDevuelto_Validated(object sender, EventArgs e)
+        {
+            errorProviderDevolucion.SetError(TxtKilometrosDevuelto, "");
+        }
     }
 }

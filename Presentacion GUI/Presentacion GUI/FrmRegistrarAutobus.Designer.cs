@@ -29,38 +29,47 @@ namespace Presentacion_GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.PnlRegistarTactor = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.PnlRegistarAutobus = new System.Windows.Forms.Panel();
             this.TxtKilometrosRenta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtKilometrosDevuelto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.BtnrRegistrar = new System.Windows.Forms.Button();
-            this.dataGridViewRegistro = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PnlRegistarTactor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).BeginInit();
+            this.errorProviderPlaca = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderRenta = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderDevolucion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DGRegistrarAutobus = new System.Windows.Forms.DataGridView();
+            this.PnlRegistarAutobus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPlaca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderRenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDevolucion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGRegistrarAutobus)).BeginInit();
             this.SuspendLayout();
             // 
-            // PnlRegistarTactor
+            // PnlRegistarAutobus
             // 
-            this.PnlRegistarTactor.AllowDrop = true;
-            this.PnlRegistarTactor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.PnlRegistarTactor.Controls.Add(this.TxtKilometrosRenta);
-            this.PnlRegistarTactor.Controls.Add(this.label4);
-            this.PnlRegistarTactor.Controls.Add(this.TxtKilometrosDevuelto);
-            this.PnlRegistarTactor.Controls.Add(this.label2);
-            this.PnlRegistarTactor.Controls.Add(this.TxtPlaca);
-            this.PnlRegistarTactor.Controls.Add(this.BtnrRegistrar);
-            this.PnlRegistarTactor.Controls.Add(this.dataGridViewRegistro);
-            this.PnlRegistarTactor.Controls.Add(this.label3);
-            this.PnlRegistarTactor.Controls.Add(this.label1);
-            this.PnlRegistarTactor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlRegistarTactor.Location = new System.Drawing.Point(0, 0);
-            this.PnlRegistarTactor.Name = "PnlRegistarTactor";
-            this.PnlRegistarTactor.Size = new System.Drawing.Size(777, 490);
-            this.PnlRegistarTactor.TabIndex = 3;
+            this.PnlRegistarAutobus.AllowDrop = true;
+            this.PnlRegistarAutobus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.PnlRegistarAutobus.Controls.Add(this.DGRegistrarAutobus);
+            this.PnlRegistarAutobus.Controls.Add(this.TxtKilometrosRenta);
+            this.PnlRegistarAutobus.Controls.Add(this.label4);
+            this.PnlRegistarAutobus.Controls.Add(this.TxtKilometrosDevuelto);
+            this.PnlRegistarAutobus.Controls.Add(this.label2);
+            this.PnlRegistarAutobus.Controls.Add(this.TxtPlaca);
+            this.PnlRegistarAutobus.Controls.Add(this.BtnrRegistrar);
+            this.PnlRegistarAutobus.Controls.Add(this.label3);
+            this.PnlRegistarAutobus.Controls.Add(this.label1);
+            this.PnlRegistarAutobus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlRegistarAutobus.Location = new System.Drawing.Point(0, 0);
+            this.PnlRegistarAutobus.Name = "PnlRegistarAutobus";
+            this.PnlRegistarAutobus.Size = new System.Drawing.Size(777, 490);
+            this.PnlRegistarAutobus.TabIndex = 3;
             // 
             // TxtKilometrosRenta
             // 
@@ -69,6 +78,8 @@ namespace Presentacion_GUI
             this.TxtKilometrosRenta.Name = "TxtKilometrosRenta";
             this.TxtKilometrosRenta.Size = new System.Drawing.Size(51, 22);
             this.TxtKilometrosRenta.TabIndex = 29;
+            this.TxtKilometrosRenta.Validating += new System.ComponentModel.CancelEventHandler(this.TxtKilometrosRenta_Validating);
+            this.TxtKilometrosRenta.Validated += new System.EventHandler(this.TxtKilometrosRenta_Validated);
             // 
             // label4
             // 
@@ -88,6 +99,8 @@ namespace Presentacion_GUI
             this.TxtKilometrosDevuelto.Name = "TxtKilometrosDevuelto";
             this.TxtKilometrosDevuelto.Size = new System.Drawing.Size(51, 22);
             this.TxtKilometrosDevuelto.TabIndex = 27;
+            this.TxtKilometrosDevuelto.Validating += new System.ComponentModel.CancelEventHandler(this.TxtKilometrosDevuelto_Validating);
+            this.TxtKilometrosDevuelto.Validated += new System.EventHandler(this.TxtKilometrosDevuelto_Validated);
             // 
             // label2
             // 
@@ -107,6 +120,8 @@ namespace Presentacion_GUI
             this.TxtPlaca.Name = "TxtPlaca";
             this.TxtPlaca.Size = new System.Drawing.Size(73, 22);
             this.TxtPlaca.TabIndex = 25;
+            this.TxtPlaca.Validating += new System.ComponentModel.CancelEventHandler(this.TxtPlaca_Validating);
+            this.TxtPlaca.Validated += new System.EventHandler(this.TxtPlaca_Validated);
             // 
             // BtnrRegistrar
             // 
@@ -123,15 +138,6 @@ namespace Presentacion_GUI
             this.BtnrRegistrar.Text = "    REGISTRAR";
             this.BtnrRegistrar.UseVisualStyleBackColor = false;
             this.BtnrRegistrar.Click += new System.EventHandler(this.BtnrRegistrar_Click);
-            // 
-            // dataGridViewRegistro
-            // 
-            this.dataGridViewRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRegistro.Location = new System.Drawing.Point(51, 119);
-            this.dataGridViewRegistro.Name = "dataGridViewRegistro";
-            this.dataGridViewRegistro.RowTemplate.Height = 25;
-            this.dataGridViewRegistro.Size = new System.Drawing.Size(382, 216);
-            this.dataGridViewRegistro.TabIndex = 21;
             // 
             // label3
             // 
@@ -155,33 +161,78 @@ namespace Presentacion_GUI
             this.label1.TabIndex = 18;
             this.label1.Text = "REGISTRAR AUTOBUS";
             // 
+            // errorProviderPlaca
+            // 
+            this.errorProviderPlaca.ContainerControl = this;
+            // 
+            // errorProviderRenta
+            // 
+            this.errorProviderRenta.ContainerControl = this;
+            // 
+            // errorProviderDevolucion
+            // 
+            this.errorProviderDevolucion.ContainerControl = this;
+            // 
+            // DGRegistrarAutobus
+            // 
+            this.DGRegistrarAutobus.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGRegistrarAutobus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DGRegistrarAutobus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGRegistrarAutobus.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DGRegistrarAutobus.GridColor = System.Drawing.Color.White;
+            this.DGRegistrarAutobus.Location = new System.Drawing.Point(40, 140);
+            this.DGRegistrarAutobus.Name = "DGRegistrarAutobus";
+            this.DGRegistrarAutobus.RowTemplate.Height = 25;
+            this.DGRegistrarAutobus.Size = new System.Drawing.Size(384, 180);
+            this.DGRegistrarAutobus.TabIndex = 32;
+            // 
             // FrmRegistrarAutobus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 490);
-            this.Controls.Add(this.PnlRegistarTactor);
+            this.Controls.Add(this.PnlRegistarAutobus);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRegistrarAutobus";
             this.Text = "FrmRegistrarAutobus";
-            this.PnlRegistarTactor.ResumeLayout(false);
-            this.PnlRegistarTactor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).EndInit();
+            this.PnlRegistarAutobus.ResumeLayout(false);
+            this.PnlRegistarAutobus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPlaca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderRenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDevolucion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGRegistrarAutobus)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel PnlRegistarTactor;
+        private System.Windows.Forms.Panel PnlRegistarAutobus;
         private System.Windows.Forms.TextBox TxtKilometrosRenta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtKilometrosDevuelto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtPlaca;
         private System.Windows.Forms.Button BtnrRegistrar;
-        private System.Windows.Forms.DataGridView dataGridViewRegistro;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProviderPlaca;
+        private System.Windows.Forms.ErrorProvider errorProviderRenta;
+        private System.Windows.Forms.ErrorProvider errorProviderDevolucion;
+        private System.Windows.Forms.DataGridView DGRegistrarAutobus;
     }
 }

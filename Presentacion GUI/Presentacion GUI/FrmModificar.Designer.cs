@@ -29,7 +29,12 @@ namespace Presentacion_GUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PnlModificar = new System.Windows.Forms.Panel();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.DGModificar = new System.Windows.Forms.DataGridView();
             this.PnlAutobus = new System.Windows.Forms.Panel();
             this.TxtKilometrosRenta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -44,28 +49,38 @@ namespace Presentacion_GUI
             this.TxtNumeroLiquidacion = new System.Windows.Forms.TextBox();
             this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.BtnBuscar = new System.Windows.Forms.Button();
-            this.dataGridViewRegistro = new System.Windows.Forms.DataGridView();
+            this.BtnModificar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProviderLiquidacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderTiporenta = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPlaca = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderRenta = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderDevolucion = new System.Windows.Forms.ErrorProvider(this.components);
             this.PnlModificar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGModificar)).BeginInit();
             this.PnlAutobus.SuspendLayout();
             this.PnlTractor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLiquidacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTiporenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPlaca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderRenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDevolucion)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlModificar
             // 
             this.PnlModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.PnlModificar.Controls.Add(this.BtnBuscar);
+            this.PnlModificar.Controls.Add(this.DGModificar);
             this.PnlModificar.Controls.Add(this.PnlAutobus);
             this.PnlModificar.Controls.Add(this.PnlTractor);
             this.PnlModificar.Controls.Add(this.CbxTipoVehiculo);
             this.PnlModificar.Controls.Add(this.TxtNumeroLiquidacion);
             this.PnlModificar.Controls.Add(this.TxtPlaca);
             this.PnlModificar.Controls.Add(this.label4);
-            this.PnlModificar.Controls.Add(this.BtnBuscar);
-            this.PnlModificar.Controls.Add(this.dataGridViewRegistro);
+            this.PnlModificar.Controls.Add(this.BtnModificar);
             this.PnlModificar.Controls.Add(this.label3);
             this.PnlModificar.Controls.Add(this.label2);
             this.PnlModificar.Controls.Add(this.label1);
@@ -74,6 +89,48 @@ namespace Presentacion_GUI
             this.PnlModificar.Name = "PnlModificar";
             this.PnlModificar.Size = new System.Drawing.Size(777, 490);
             this.PnlModificar.TabIndex = 1;
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.BtnBuscar.FlatAppearance.BorderSize = 0;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnBuscar.Image = global::Presentacion_GUI.Properties.Resources.consulta;
+            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBuscar.Location = new System.Drawing.Point(264, 126);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(41, 32);
+            this.BtnBuscar.TabIndex = 35;
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // DGModificar
+            // 
+            this.DGModificar.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGModificar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DGModificar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGModificar.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DGModificar.GridColor = System.Drawing.Color.White;
+            this.DGModificar.Location = new System.Drawing.Point(31, 190);
+            this.DGModificar.Name = "DGModificar";
+            this.DGModificar.RowTemplate.Height = 25;
+            this.DGModificar.Size = new System.Drawing.Size(384, 180);
+            this.DGModificar.TabIndex = 34;
             // 
             // PnlAutobus
             // 
@@ -189,6 +246,8 @@ namespace Presentacion_GUI
             this.CbxTipoVehiculo.TabIndex = 26;
             this.CbxTipoVehiculo.Text = "Seleccionar";
             this.CbxTipoVehiculo.SelectedIndexChanged += new System.EventHandler(this.CbxTipoVehiculo_SelectedIndexChanged);
+            this.CbxTipoVehiculo.Validating += new System.ComponentModel.CancelEventHandler(this.CbxTipoVehiculo_Validating);
+            this.CbxTipoVehiculo.Validated += new System.EventHandler(this.CbxTipoVehiculo_Validated);
             // 
             // TxtNumeroLiquidacion
             // 
@@ -197,6 +256,8 @@ namespace Presentacion_GUI
             this.TxtNumeroLiquidacion.Name = "TxtNumeroLiquidacion";
             this.TxtNumeroLiquidacion.Size = new System.Drawing.Size(112, 22);
             this.TxtNumeroLiquidacion.TabIndex = 25;
+            this.TxtNumeroLiquidacion.Validating += new System.ComponentModel.CancelEventHandler(this.TxtNumeroLiquidacion_Validating);
+            this.TxtNumeroLiquidacion.Validated += new System.EventHandler(this.TxtNumeroLiquidacion_Validated);
             // 
             // TxtPlaca
             // 
@@ -217,29 +278,21 @@ namespace Presentacion_GUI
             this.label4.TabIndex = 23;
             this.label4.Text = "Tipo de Renta";
             // 
-            // BtnBuscar
+            // BtnModificar
             // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.BtnBuscar.FlatAppearance.BorderSize = 0;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnBuscar.Image = global::Presentacion_GUI.Properties.Resources.boton_editar;
-            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBuscar.Location = new System.Drawing.Point(577, 439);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(188, 39);
-            this.BtnBuscar.TabIndex = 22;
-            this.BtnBuscar.Text = "MODIFICAR";
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewRegistro
-            // 
-            this.dataGridViewRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRegistro.Location = new System.Drawing.Point(34, 190);
-            this.dataGridViewRegistro.Name = "dataGridViewRegistro";
-            this.dataGridViewRegistro.RowTemplate.Height = 25;
-            this.dataGridViewRegistro.Size = new System.Drawing.Size(388, 162);
-            this.dataGridViewRegistro.TabIndex = 21;
+            this.BtnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.BtnModificar.FlatAppearance.BorderSize = 0;
+            this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnModificar.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnModificar.Image = global::Presentacion_GUI.Properties.Resources.boton_editar;
+            this.BtnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnModificar.Location = new System.Drawing.Point(577, 439);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(188, 39);
+            this.BtnModificar.TabIndex = 22;
+            this.BtnModificar.Text = "MODIFICAR";
+            this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // label3
             // 
@@ -274,6 +327,26 @@ namespace Presentacion_GUI
             this.label1.TabIndex = 18;
             this.label1.Text = "MODIFICAR";
             // 
+            // errorProviderLiquidacion
+            // 
+            this.errorProviderLiquidacion.ContainerControl = this;
+            // 
+            // errorProviderTiporenta
+            // 
+            this.errorProviderTiporenta.ContainerControl = this;
+            // 
+            // errorProviderPlaca
+            // 
+            this.errorProviderPlaca.ContainerControl = this;
+            // 
+            // errorProviderRenta
+            // 
+            this.errorProviderRenta.ContainerControl = this;
+            // 
+            // errorProviderDevolucion
+            // 
+            this.errorProviderDevolucion.ContainerControl = this;
+            // 
             // FrmModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -285,11 +358,16 @@ namespace Presentacion_GUI
             this.Text = "Modificar";
             this.PnlModificar.ResumeLayout(false);
             this.PnlModificar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGModificar)).EndInit();
             this.PnlAutobus.ResumeLayout(false);
             this.PnlAutobus.PerformLayout();
             this.PnlTractor.ResumeLayout(false);
             this.PnlTractor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLiquidacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTiporenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPlaca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderRenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDevolucion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -301,8 +379,7 @@ namespace Presentacion_GUI
         private System.Windows.Forms.TextBox TxtNumeroLiquidacion;
         private System.Windows.Forms.TextBox TxtPlaca;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button BtnBuscar;
-        private System.Windows.Forms.DataGridView dataGridViewRegistro;
+        private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -316,5 +393,12 @@ namespace Presentacion_GUI
         private System.Windows.Forms.TextBox TxtKilometrosDevuelto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errorProviderLiquidacion;
+        private System.Windows.Forms.ErrorProvider errorProviderTiporenta;
+        private System.Windows.Forms.ErrorProvider errorProviderPlaca;
+        private System.Windows.Forms.ErrorProvider errorProviderRenta;
+        private System.Windows.Forms.ErrorProvider errorProviderDevolucion;
+        private System.Windows.Forms.DataGridView DGModificar;
+        private System.Windows.Forms.Button BtnBuscar;
     }
 }

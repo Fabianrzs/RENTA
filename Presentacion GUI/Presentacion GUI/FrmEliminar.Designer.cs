@@ -30,18 +30,20 @@ namespace Presentacion_GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PnlEliminar = new System.Windows.Forms.Panel();
+            this.DGEliminar = new System.Windows.Forms.DataGridView();
             this.TxtNumeroLiquidacion = new System.Windows.Forms.TextBox();
             this.TxtConfirmarLiquidacion = new System.Windows.Forms.TextBox();
             this.BtnEliminar = new System.Windows.Forms.Button();
-            this.dataGridViewRegistro = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.errorProviderNumeroLiquidacion = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderConfirmarLiquidacion = new System.Windows.Forms.ErrorProvider(this.components);
             this.PnlEliminar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNumeroLiquidacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmarLiquidacion)).BeginInit();
             this.SuspendLayout();
@@ -49,10 +51,10 @@ namespace Presentacion_GUI
             // PnlEliminar
             // 
             this.PnlEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.PnlEliminar.Controls.Add(this.DGEliminar);
             this.PnlEliminar.Controls.Add(this.TxtNumeroLiquidacion);
             this.PnlEliminar.Controls.Add(this.TxtConfirmarLiquidacion);
             this.PnlEliminar.Controls.Add(this.BtnEliminar);
-            this.PnlEliminar.Controls.Add(this.dataGridViewRegistro);
             this.PnlEliminar.Controls.Add(this.label3);
             this.PnlEliminar.Controls.Add(this.label2);
             this.PnlEliminar.Controls.Add(this.label5);
@@ -61,6 +63,33 @@ namespace Presentacion_GUI
             this.PnlEliminar.Name = "PnlEliminar";
             this.PnlEliminar.Size = new System.Drawing.Size(777, 490);
             this.PnlEliminar.TabIndex = 1;
+            // 
+            // DGEliminar
+            // 
+            this.DGEliminar.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGEliminar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGEliminar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGEliminar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DGEliminar.GridColor = System.Drawing.Color.White;
+            this.DGEliminar.Location = new System.Drawing.Point(132, 182);
+            this.DGEliminar.Name = "DGEliminar";
+            this.DGEliminar.RowTemplate.Height = 25;
+            this.DGEliminar.Size = new System.Drawing.Size(507, 158);
+            this.DGEliminar.TabIndex = 17;
             // 
             // TxtNumeroLiquidacion
             // 
@@ -96,15 +125,7 @@ namespace Presentacion_GUI
             this.BtnEliminar.TabIndex = 13;
             this.BtnEliminar.Text = "     ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewRegistro
-            // 
-            this.dataGridViewRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRegistro.Location = new System.Drawing.Point(90, 173);
-            this.dataGridViewRegistro.Name = "dataGridViewRegistro";
-            this.dataGridViewRegistro.RowTemplate.Height = 25;
-            this.dataGridViewRegistro.Size = new System.Drawing.Size(595, 168);
-            this.dataGridViewRegistro.TabIndex = 12;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // label3
             // 
@@ -158,7 +179,7 @@ namespace Presentacion_GUI
             this.Text = "FrmEliminar";
             this.PnlEliminar.ResumeLayout(false);
             this.PnlEliminar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNumeroLiquidacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmarLiquidacion)).EndInit();
             this.ResumeLayout(false);
@@ -170,12 +191,12 @@ namespace Presentacion_GUI
         private System.Windows.Forms.Panel PnlEliminar;
         private System.Windows.Forms.TextBox TxtNumeroLiquidacion;
         private System.Windows.Forms.Button BtnEliminar;
-        private System.Windows.Forms.DataGridView dataGridViewRegistro;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtConfirmarLiquidacion;
         private System.Windows.Forms.ErrorProvider errorProviderNumeroLiquidacion;
         private System.Windows.Forms.ErrorProvider errorProviderConfirmarLiquidacion;
+        private System.Windows.Forms.DataGridView DGEliminar;
     }
 }

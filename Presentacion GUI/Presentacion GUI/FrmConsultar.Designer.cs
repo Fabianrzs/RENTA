@@ -29,31 +29,28 @@ namespace Presentacion_GUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PnlConsultar = new System.Windows.Forms.Panel();
             this.CbxTipoVehiculo = new System.Windows.Forms.ComboBox();
-            this.TxtNumeroLiquidacion = new System.Windows.Forms.TextBox();
-            this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnBuscar = new System.Windows.Forms.Button();
-            this.DGConsultar = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProviderTipo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DGConsultar = new System.Windows.Forms.DataGridView();
             this.PnlConsultar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTipo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGConsultar)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlConsultar
             // 
             this.PnlConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.PnlConsultar.Controls.Add(this.DGConsultar);
             this.PnlConsultar.Controls.Add(this.CbxTipoVehiculo);
-            this.PnlConsultar.Controls.Add(this.TxtNumeroLiquidacion);
-            this.PnlConsultar.Controls.Add(this.TxtPlaca);
             this.PnlConsultar.Controls.Add(this.label4);
             this.PnlConsultar.Controls.Add(this.BtnBuscar);
-            this.PnlConsultar.Controls.Add(this.DGConsultar);
-            this.PnlConsultar.Controls.Add(this.label3);
-            this.PnlConsultar.Controls.Add(this.label2);
             this.PnlConsultar.Controls.Add(this.label1);
             this.PnlConsultar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlConsultar.Font = new System.Drawing.Font("Modern No. 20", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -69,34 +66,20 @@ namespace Presentacion_GUI
             this.CbxTipoVehiculo.Items.AddRange(new object[] {
             "AUTOBUS",
             "TRACTOR"});
-            this.CbxTipoVehiculo.Location = new System.Drawing.Point(524, 172);
+            this.CbxTipoVehiculo.Location = new System.Drawing.Point(253, 145);
             this.CbxTipoVehiculo.Name = "CbxTipoVehiculo";
             this.CbxTipoVehiculo.Size = new System.Drawing.Size(96, 24);
             this.CbxTipoVehiculo.TabIndex = 8;
             this.CbxTipoVehiculo.Text = "Seleccionar";
-            // 
-            // TxtNumeroLiquidacion
-            // 
-            this.TxtNumeroLiquidacion.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TxtNumeroLiquidacion.Location = new System.Drawing.Point(113, 172);
-            this.TxtNumeroLiquidacion.Name = "TxtNumeroLiquidacion";
-            this.TxtNumeroLiquidacion.Size = new System.Drawing.Size(112, 22);
-            this.TxtNumeroLiquidacion.TabIndex = 7;
-            // 
-            // TxtPlaca
-            // 
-            this.TxtPlaca.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TxtPlaca.Location = new System.Drawing.Point(323, 172);
-            this.TxtPlaca.Name = "TxtPlaca";
-            this.TxtPlaca.Size = new System.Drawing.Size(113, 22);
-            this.TxtPlaca.TabIndex = 6;
+            this.CbxTipoVehiculo.Validating += new System.ComponentModel.CancelEventHandler(this.CbxTipoVehiculo_Validating);
+            this.CbxTipoVehiculo.Validated += new System.EventHandler(this.CbxTipoVehiculo_Validated);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(524, 136);
+            this.label4.Location = new System.Drawing.Point(104, 151);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 18);
             this.label4.TabIndex = 5;
@@ -116,37 +99,7 @@ namespace Presentacion_GUI
             this.BtnBuscar.TabIndex = 4;
             this.BtnBuscar.Text = "BUSCAR\r\n";
             this.BtnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // DGConsultar
-            // 
-            this.DGConsultar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGConsultar.Location = new System.Drawing.Point(48, 226);
-            this.DGConsultar.Name = "DGConsultar";
-            this.DGConsultar.RowTemplate.Height = 25;
-            this.DGConsultar.Size = new System.Drawing.Size(684, 162);
-            this.DGConsultar.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(323, 136);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Placa";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(104, 136);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Numero Liquidacion";
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // label1
             // 
@@ -158,6 +111,37 @@ namespace Presentacion_GUI
             this.label1.Size = new System.Drawing.Size(181, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "CONSULTAR";
+            // 
+            // errorProviderTipo
+            // 
+            this.errorProviderTipo.ContainerControl = this;
+            // 
+            // DGConsultar
+            // 
+            this.DGConsultar.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGConsultar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGConsultar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGConsultar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DGConsultar.GridColor = System.Drawing.Color.White;
+            this.DGConsultar.Location = new System.Drawing.Point(49, 183);
+            this.DGConsultar.Name = "DGConsultar";
+            this.DGConsultar.RowTemplate.Height = 25;
+            this.DGConsultar.Size = new System.Drawing.Size(687, 228);
+            this.DGConsultar.TabIndex = 13;
             // 
             // FrmConsultar
             // 
@@ -171,6 +155,7 @@ namespace Presentacion_GUI
             this.Text = "FrmConsultar";
             this.PnlConsultar.ResumeLayout(false);
             this.PnlConsultar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTipo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGConsultar)).EndInit();
             this.ResumeLayout(false);
 
@@ -181,12 +166,9 @@ namespace Presentacion_GUI
         private System.Windows.Forms.Panel PnlConsultar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnBuscar;
-        private System.Windows.Forms.DataGridView DGConsultar;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CbxTipoVehiculo;
-        private System.Windows.Forms.TextBox TxtNumeroLiquidacion;
-        private System.Windows.Forms.TextBox TxtPlaca;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProviderTipo;
+        private System.Windows.Forms.DataGridView DGConsultar;
     }
 }
