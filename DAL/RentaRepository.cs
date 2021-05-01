@@ -113,13 +113,9 @@ namespace DAL
                     }else if (item.TipoVehiculo.Equals("AUTOBUS"))
                     {
                         Guardar((RentaAutobus)item);
-                    }
-
-                    
+                    }    
                 }
             }
-
-
         }
 
         public void Modificar (RentaVehiculo renta, double Liquidacion)
@@ -132,22 +128,22 @@ namespace DAL
             {
                 if (item.NumeroLiquidacion != Liquidacion)
                 {
-                    if (item.TipoVehiculo.Equals("Tractor"))
+                    if (item.TipoVehiculo.Equals("TRACTOR"))
                     {
                         Guardar((RentaTractor)item);
                     }
-                    else if (item.TipoVehiculo.Equals("Autobus"))
+                    else if (item.TipoVehiculo.Equals("AUTOBUS"))
                     {
                         Guardar((RentaAutobus)item);
                     }
                 }
                 else
                 {
-                    if (item.TipoVehiculo.Equals("Tractor"))
+                    if (renta.TipoVehiculo.Equals("TRACTOR"))
                     {
                         Guardar((RentaTractor)renta);
                     }
-                    else if (item.TipoVehiculo.Equals("Autobus"))
+                    else if (renta.TipoVehiculo.Equals("AUTOBUS"))
                     {
                         Guardar((RentaAutobus)renta);
                     }

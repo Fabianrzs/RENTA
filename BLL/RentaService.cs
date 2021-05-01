@@ -87,7 +87,7 @@ namespace BLL
         {
             try
             {
-                if (repository.BuscarPorLiquidacion(liquidacion) != null)
+                if(repository.BuscarPorLiquidacion(liquidacion) != null)
                 {
                     repository.Modificar(renta, liquidacion);
 

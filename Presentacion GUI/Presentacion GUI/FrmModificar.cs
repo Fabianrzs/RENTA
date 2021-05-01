@@ -21,6 +21,10 @@ namespace Presentacion_GUI
         {
             InitializeComponent();
             service = new RentaService();
+            CbxTipoVehiculo.Visible = false;
+            TxtPlaca.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
         }
 
         private void CbxTipoVehiculo_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,11 +89,18 @@ namespace Presentacion_GUI
             
             BusquedaResponse busqueda;
 
-            busqueda = service.Buscar(Convert.ToInt32(TxtNumeroLiquidacion.Text));
+            Int32.TryParse(TxtNumeroLiquidacion.Text, out int result);
+
+            busqueda = service.Buscar(result);
 
             if (!busqueda.Error)
             {
                 MessageBox.Show("Modifique los siguientes datos");
+
+                CbxTipoVehiculo.Visible = true;
+                TxtPlaca.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
             }
             else
             {
@@ -114,7 +125,7 @@ namespace Presentacion_GUI
                     FechaDevocion = dateTimeDevolucion.Value,
                 };
                 renta.CalcularvalorRenta();
-                service.Modificar(renta, Convert.ToInt32(TxtNumeroLiquidacion.Text));
+                MessageBox.Show(service.Modificar(renta, Convert.ToInt32(TxtNumeroLiquidacion.Text)));
 
             }
             else
@@ -124,13 +135,13 @@ namespace Presentacion_GUI
                     NumeroLiquidacion = Convert.ToInt32(TxtNumeroLiquidacion.Text),
                     TipoVehiculo = "AUTOBUS",
                     Placa = TxtPlaca.Text,
-                    KilometroRenta = Convert.ToInt32(TxtNumeroLiquidacion.Text),
-                    KilometroDevolucion = Convert.ToInt32(TxtNumeroLiquidacion.Text),
+                    KilometroRenta = Convert.ToInt32(TxtKilometrosRenta.Text),
+                    KilometroDevolucion = Convert.ToInt32(TxtKilometrosDevuelto.Text),
 
 
                 };
-
-                service.Modificar(renta, Convert.ToInt32(TxtNumeroLiquidacion.Text));
+                renta.CalcularvalorRenta();
+                MessageBox.Show(service.Modificar(renta, Convert.ToInt32(TxtNumeroLiquidacion.Text)));
             }
 
         }
